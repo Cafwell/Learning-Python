@@ -1,7 +1,0 @@
-## f-string
-Also called formatted string literals.
-
-``` Python
-name = str(input("Give me a name: "))
-print(f'Hello, my name is {name}')
-```
