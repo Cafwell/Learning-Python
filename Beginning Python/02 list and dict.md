@@ -81,3 +81,43 @@ list3 = [1, 2, 3] + [4, 5, 6]
 print(list3)
 [1, 2, 3, 4, 5, 6]
 ```
+
+## Dictionary
+Each 'key => value' pair of the dictionary is separated by a colon, each pair is separated by a comma (,) , and the entire dictionary is enclosed in curly braces{ }
+```Python
+d = {key1 : value1, key2 : value2, key3 : value3 }
+# Variable names are not recommended as 'dict'
+```
+The key must be unique, but the value is not.
+
+```Python
+# It can be written vertically
+>>> d1 = {
+    'Name': 'Zelda',
+    'Age': 18,
+    'Class': 'First'
+}
+>>> print("tinydict['Name']:", tinydict['Name'])
+tinydict['Name']: Zara
+```
+
+### Update the Dict
+```Python
+>>> d1['Age'] = 20 # Update
+>>> d1['School'] = " HappySchool " # Add new item
+```
+
+### Function & Method
+```Python
+>>> sounds = {"cat": "meow", "dog": "woof", "horse": "neigh"}
+>>> print(len(sounds))
+>>> print(str(sounds))
+3
+{'cat': 'meow', 'dog': 'woof', 'horse': 'neigh'}
+```
+
+Built-in methods:
++ dict.items() 以列表返回一个视图对象
++ dict.keys() 返回一个视图对象
++ dict.values() 返回一个视图对象
++ dict.clear() 删除字典内所有元素
