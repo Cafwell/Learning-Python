@@ -100,6 +100,13 @@ The key must be unique, but the value is not.
 >>> print("tinydict['Name']:", tinydict['Name'])
 tinydict['Name']: Zara
 ```
+If one key have more than one value, they should be a list;
+```Python
+d = {
+    'a' : [1, 2, 3],
+    'b' : [4, 5]
+}
+```
 
 ### Update the Dict
 ```Python
