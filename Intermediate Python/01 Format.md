@@ -22,13 +22,21 @@ This usage is still widely used today, but it is actually a grammar that is not 
 ---
 ***Exercise***
 
-Hint - join() Function
-myTuple = ("John", "Peter", "Vicky")
-x = " ".join(myTuple)
-print(x)
+```Python
+# Hint - join() Function
+>>> myTuple = ("John", "Peter", "Vicky")
+>>> x = " ".join(myTuple)
+>>> print(x)
 John Peter Vicky
 
+>>> s = "what is your name"
+>>> s_list = s.split()
+>>> y = "-".join(s_list)
+>>> print(y)
+what-is-your-name
+```
 
+Morse:
 ```Python
 >>> letter_to_morse = {
     'a':'.-', 'b':'-...', 'c':'-.-.', 'd':'-..', 'e':'.', 'f':'..-.',
