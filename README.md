@@ -1,7 +1,7 @@
 ## Learning-Python
-My Python study recordings.
+A Python study recordings.
 
-Based on https://milliams.com/courses/beginning_python/ and Network resources (https://www.runoob.com/python3/ for example)
+Based on https://milliams.com/courses/beginning_python/ and Network resources ( https://www.runoob.com/python3/ for example. )
 
 
 ------
