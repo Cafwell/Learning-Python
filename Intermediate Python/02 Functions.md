@@ -59,16 +59,18 @@ Exercise
 Having a list like: my_list = [5, 7, 34, 5, 3, 545]
 if num > 10, print them like [34, 545]
 
-```
-def big(numbers):
+<details>
+  <summary><b>Answer</b></summary>
+  <pre><code> 
+>>> def big(numbers):
     a = []
     for num in numbers:
         if num > 10:
             a.append(num)
     return a
-
-my_list = [5, 7, 34, 5, 3, 545]
-large_numbers = big(my_list)
-print(large_numbers)
-```
----
+>>> my_list = [5, 7, 34, 5, 3, 545]
+>>> large_numbers = big(my_list)
+>>> print(large_numbers)
+[34, 545]
+    </code></pre>
+</details>
