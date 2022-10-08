@@ -17,7 +17,7 @@ test2.txt are:
 
 ### Read( )
 ```Python
-f = open("sxl.txt", "r")   #"r" indicates read
+f = open("sxl.txt", "r")   # "r" indicates read
 lines = f.read()
 print lines
 f.close()
@@ -51,7 +51,8 @@ with open("test2.txt") as f:
 Sum is 135
 ```
 
-## Challenge
+#### A problem
+```
 Start by making a file called calc.txt with the following contents:  
 4 * 6  
 5 + 6  
@@ -59,6 +60,7 @@ Start by making a file called calc.txt with the following contents:
 54 / 3  
 4 + 6  
 Make sure that you have the spaces between each number and the operator.
+```
 
 It should output something like:  
 4 * 6 is 24  
@@ -67,19 +69,16 @@ It should output something like:
 54 / 3 is 18.0  
 4 + 6 is 10  
 There are some extra functions you will need to do this.
-Firstly, the split function which takes a string and returns a list containing the string, split by spaces.   
-Secondly, you may need the strip function which removes any whitespace from the beginning and end of a string, including removing newlines.
-
-_The example file only has integers in it, can you adjust your program so that it can accept floating point numbers as well?
-Can you adapt your program so that it can support code with or without spaces either side of the operator? This is a more challenging exercise so feel free to ask for some some help and be sure to show one of the instructors your answer once you've got it working._
++ Firstly, the split function which takes a string and returns a list containing the string, split by spaces.   
++ Secondly, you may need the strip function which removes any whitespace from the beginning and end of a string, including removing newlines.
 
 ```Python
 with open("calc.txt") as f:
     for line in f:
-        a = str(eval(line))
-        print(str.strip(line), "is", a, "\n", end="")
+        a = str(eval(line))  # eval( ): Evaluates a string as a valid expression and returns the result of the evaluation.
+        print(str.strip(line), "is", a, "\n", end="")  # str.strip( ): Removes the characters specified at the beginning and end of the string (either spaces or newlines by default)
         
-#ps: use while and readline():
+# ps: use while and readline():
 with open ("calc.txt") as f:
     line = f.readline()
     while line:
@@ -87,3 +86,7 @@ with open ("calc.txt") as f:
         print(str.strip(line), "is", a, "\n", end="")
         line = f.readline()
 ```
+
+
+_The example file only has integers in it, can you adjust your program so that it can accept floating point numbers as well?_   
+_Can you adapt your program so that it can support code with or without spaces either side of the operator?_
