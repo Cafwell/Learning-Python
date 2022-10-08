@@ -93,6 +93,26 @@ print(list3)
 [1, 2, 3, 4, 5, 6]
 ```
 
+## Tuple
+Tuples and lists are of the same sequence type, and both can hold a set of data in a particular order, with no restrictions on data types.
+
+The big difference between a tuple and a list is that the elements in the list can be changed as much as they want, while the elements in the tuple can not be changed, unless you replace the tuple as a whole.
+
+```Python
+tup1 = ('physics', 'chemistry', 1997, 2000)
+tup2 = (1, 2, 3, 4, 5 )
+print(tup1[0])
+---
+physics
+```
+The value of an element in a tuple is not allowed to be modified, but we can concatenate the composition of tuples:
+```Python
+tup3 = tup1 + tup2
+print(tup3)
+---
+('physics', 'chemistry', 1997, 2000, 1, 2, 3, 4, 5)
+```
+
 ## Dictionary
 Each 'key => value' pair of the dictionary is separated by a colon, each pair is separated by a comma (,) , and the entire dictionary is enclosed in curly braces{ }
 ```Python
