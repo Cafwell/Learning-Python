@@ -2,23 +2,27 @@
 A Python for loop can traverse any sequence of items, such as a list or a string.
 
 ```Python
->>> words = ["Are", "you", "good", "now"]  #list
+>>> words = ["are", "you", "good", "now"]  #list
 >>> for a in words:
     print(a)
-Are
+are
 you
 good
 now
 
->>> for letter in 'Python':  #string
+>>> for letter in 'python':  #string
     print(" 当前字母: % s" % letter)
-P
+p
 y
 t
 h
 o
 n
 ```
+### Ranges
+
+
+### else
 
 
 
