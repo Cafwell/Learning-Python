@@ -144,18 +144,50 @@ def fun1():
    a = 6
    print(a + 1)
 # Because a belongs to the fun () , a is a local variable and only works in this function.
+
+def fun2():
+   a = 7
+   print(a + 1)
+# Different functions can define local variables with the same name
 ```
+
 + Global variables
 Defined outside the function
-```
+```Python
 b = 1
-def fun2():
+def fun3():
    a = 5
    print(a + 2)
 ```
 
+Functions can not modify global variables directly
+```Python
+c = 2
+def fun4():
+   print(c + 2)
+fun4()
+print(c)
 ---
-Exercise
+2
+```
+
+To manipulate a global variable inside the function, you need to declare it global inside the function:
+```Python
+x = 1
+def fung():
+    global x
+    x = 31  # After this declaration, the value of the global variable x has changed from 1 to 31
+fung()
+print(x)
+---
+31
+```  
+
+Ps: When the list and the Turtle as the global variables, you can use it without global declaration.
+
+---
+
+**Exercise：**
 
 Having a list like: my_list = [5, 7, 34, 5, 3, 545]
 if num > 10, print them like [34, 545]
@@ -163,21 +195,98 @@ if num > 10, print them like [34, 545]
 <details>
   <summary><b>Answer</b></summary>
   <pre><code> 
->>> def big(numbers):
+def big(numbers):
     a = []
     for num in numbers:
         if num > 10:
             a.append(num)
     return a
->>> my_list = [5, 7, 34, 5, 3, 545]
->>> large_numbers = big(my_list)
->>> print(large_numbers)
+my_list = [5, 7, 34, 5, 3, 545]
+large_numbers = big(my_list)
+print(large_numbers)
+---
 [34, 545]
     </code></pre>
 </details>
 
+---
 
 ## Modules
+Make a file called convert.py：
+```Python
+def ounces_to_grams(weight):
+    new_weight = weight * 28.3495
+    return new_weight
+```
 
+Then you can to the console and run:
+```
+>>> import convert
+>>> convert.ounces_to_grams(10)
+283.495
+```
 
+### About calling
+Creat a file - module.py
+```Python
+def hello():
+    print("hello")
+def bye():
+    print("bye-bye")
+```
+And another file:
+```Python
+import module
+hello() 
+bye()
+```
+NameError!
+Because the hello () and bye () are found only in this program.
 
+To use module, there are two ways:
+```Python
+from module import hello, bye
+hello()
+bye()
+
+or
+
+import module
+module.hello()
+module.bye()
+```
+
+---
+
+**Exercise：**
+
+<details>
+  <summary><b>Morse code module (morse.py):</b></summary>
+  <pre><code> 
+def code():
+   convert = {
+      'a': '.-', 'b': '-...', 'c': '-.-.', 'd': '-..', 'e': '.', 'f': '..-.',
+      'g': '--.', 'h': '....', 'i': '..', 'j': '.---', 'k': '-.-', 'l': '.-..', 'm': '--',
+      'n': '-.', 'o': '---', 'p': '.--.', 'q': '--.-', 'r': '.-.', 's': '...', 't': '-',
+      'u': '..-', 'v': '...-', 'w': '.--', 'x': '-..-', 'y': '-.--', 'z': '--..',
+      '0': '-----', '1': '.----', '2': '..---', '3': '...--', '4': '....-',
+      '5': '.....', '6': '-....', '7': '--...', '8': '---..', '9': '----.', ' ': '/'
+   }
+   message = str(input("Your message is: "))
+   morse_code = []
+   for letter in message:
+      m = convert[letter]
+      morse_code.append(m)
+   final_message = " ".join(morse_code)
+   return final_message
+    </code></pre>
+</details>
+
+```Python
+import morse
+a = morse.code()
+print(a)
+---
+Your message is: thank you
+- .... .- -. -.- / -.-- --- ..-
+```
