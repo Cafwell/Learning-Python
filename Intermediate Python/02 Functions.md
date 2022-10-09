@@ -13,11 +13,9 @@ https://docs.python.org ->
 1. [Library Reference](https://docs.python.org/3/library/index.html)
 2. [Language Reference](https://docs.python.org/3/reference/index.html)
 
-### Built-in functions
+### Importing functions
 
-
-## Importing functions
-### The math module
+The math module
 ```Python
 >>> import math
 # the square root function
@@ -38,19 +36,122 @@ A import * way
 ```
 
 ## Writing fuctions
+<details>
+  <summary><i>Source</i></summary>
+<i> This part based on https://zhuanlan.zhihu.com/p/54977805 / https://zhuanlan.zhihu.com/p/55167010 </i>
+</details>
+
+You can write your own functions:
+```
+def function_name():    # def is the keyword for a function
+   
+   contents of function     
+```
+
+A simple example is
+```Python
+def print_name():
+     print("*"*20)
+     print("===Hello function===")
+     print("*"*20)
+
+>>> print_name()
+********************
+===hello function===
+********************
+```
+
+### Function with parameters
+Obviously the function above is not universal at all, so we need some Parameters.
+
++ **The parameter in ( ) at the time of definition, used to receive the parameter, are called parameter (formal parameter)**
++ **The parameter in ( ) at call time, used to pass to the function, are called argument (actual parameter)**
 
 ```Python
->>> def o_to_g(o):
+from decimal import *
+def o_to_g(o):
     if o > 0:
-        g = o * 28.3495
+        g = Decimal (o) * Decimal ('28.3495')
         return g
     else:
         print("value is a negtive num")
         return("Try again")
 
->>> print(o_to_g(-1))
-value is a negtive num
-Try again
+>>> o_to_g(12)
+340.1940
+```
+
+```Python
+def sum(a,b):
+   print(f"{a} + {b} = {a + b}")
+
+>>> sum(12,22)
+12 + 22 = 34
+None
+```
+
+### Return
+The return value of a function in Python is the result given to the caller after the function has done something in the program.
+
+```Python
+def salary():
+   s=10000
+   print(f'Salary is {s}')
+   return s
+
+>>> salary()
+Salary is 10000
+10000
+```
+
+#### Multiple return values in the function
+
+A wrong way is like:
+```Python
+def func():
+   a=1
+   b=2
+   c=3
+   return a
+   return b
+   return c
+print(func())
+---
+1
+```
+
+Illustration:
+<div align=left><img src=https://github.com/Cafwell/Learning-Python/blob/main/imgs/Return.PNG></div>
+
+So, to return multiple function values, you need a variable to store multiple function values and then return that variable:
+
+```Python
+# First way
+d=[a,b,c]
+  return d
+# Second way  
+  return [a,b,c]
+# Third way
+  return (a,b,c)
+```
+
+### Variable
+There are:
++ Local variables
+Useful only to a certain extent
+```
+def fun1():
+   a = 6
+   print(a + 1)
+# Because a belongs to the fun () , a is a local variable and only works in this function.
+```
++ Global variables
+Defined outside the function
+```
+b = 1
+def fun2():
+   a = 5
+   print(a + 2)
 ```
 
 ---
@@ -74,3 +175,9 @@ if num > 10, print them like [34, 545]
 [34, 545]
     </code></pre>
 </details>
+
+
+## Modules
+
+
+
