@@ -52,12 +52,12 @@ A simple example is
 ```Python
 def print_name():
      print("*"*20)
-     print("===Hello function===")
+     print("== Hello Function ==")
      print("*"*20)
 
 >>> print_name()
 ********************
-===hello function===
+== Hello Function ==
 ********************
 ```
 
@@ -103,6 +103,11 @@ def salary():
 Salary is 10000
 10000
 ```
+If you do not explicitly specify a return value, Python will, by default, return a value of None:
+```
+return None
+```
+
 
 #### Multiple return values in the function
 
