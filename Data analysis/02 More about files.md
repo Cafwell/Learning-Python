@@ -148,3 +148,12 @@ temperature.head()
     </code></pre>
 </details>
 
+> Note: Set the pandas display parameters in Pycharm (maximum column number, row width, maximum column width) to display the full information.
+> See https://www.pypandas.cn/docs/user_guide/options.html#overview
+```
+import pandas as pd
+pd.set_option('display.max_colwidth', 1000)
+
+{pd.set_option('display.max_columns', 1000)
+pd.set_option('display.width', 1000)}
+```
