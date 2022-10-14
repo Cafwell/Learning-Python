@@ -76,6 +76,22 @@ plt.show()
 ```
 <img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_5.png" width="380">
 
+##### Hue, row and col
+```
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set(style="darkgrid")
+
+tips = pd.read_csv("https://milliams.com/courses/data_analysis_python/tips.csv")
+sns.displot(data=tips, x="total_bill", col='time')
+plt.show()
+```
+<img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_6.png" width="500">
+
+
+##### Kde 
 If only need kde, use sns.kdeplot:
 ```Python
 sns.set(style="white")
@@ -84,7 +100,7 @@ w1=m['weight'].dropna()
 sns.kdeplot(w1, shade=True, color='y')
 plt.show()
 ```
-<img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_6.png" width="380">
+<img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_7.png" width="380">
 
 Two curves in one graph:
 ```Python
@@ -95,4 +111,14 @@ ax2=sns.kdeplot(m['model_year'][m['origin']!='usa'],color='b', label='not usa')
 plt.legend()  # Show label
 plt.show()
 ```
-<img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_7.png" width="380">
+<img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_8.png" width="380">
+
+
+
+
+-----
+
+#### Relplot
+This is a graph-level function that uses scatter plots and line plots to represent statistical relationships.
+
+
