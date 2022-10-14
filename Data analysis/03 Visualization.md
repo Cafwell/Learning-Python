@@ -232,3 +232,8 @@ sns.relplot(data=car,
 plt.show()
 ```
 <img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_15.png">
+
+-----
+
+#### Catplot
+Categorical data
