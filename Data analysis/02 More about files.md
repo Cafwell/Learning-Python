@@ -57,7 +57,7 @@ print(pd.read_csv(city_pop_file))
 It didnt need start from 'This is an example CSV file', use skiprow:
 ```Python
 a = pd.read_csv(city_pop_file,
-                skiprow s= 5  # Start from line 5 (line start from 0)
+                skiprows= 5  # Start from line 5 (line start from 0)
     )
 print(a)
 ---
@@ -74,7 +74,7 @@ print(a)
 Separate the columns, use sep:
 ```Python
 a = pd.read_csv(city_pop_file,
-                skiprow s= 5,
+                skiprows= 5,
                 sep=";",
     )
 print(a)
@@ -92,7 +92,7 @@ print(a)
 There still some missing nums, if we want to add some custom values equivalent to missing values, use na_values:
 ```Python
 a = pd.read_csv(city_pop_file,
-                skiprow s= 5,
+                skiprows= 5,
                 sep=";",
                 na_values="-1" # All -1 will seem as NaN
     )
@@ -111,10 +111,10 @@ print(a)
 Last, we want the 'year' column as the index for this DataFrame, use index_col:
 ```Python
 a = pd.read_csv(city_pop_file,
-                skiprow s= 5,
+                skiprows= 5,
                 sep=";",
                 na_values="-1"
-                 index_col="year"
+                index_col="year"
     )
 print(a)
 ---
