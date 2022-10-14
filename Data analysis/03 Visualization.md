@@ -185,3 +185,50 @@ plt.show()
 ```
 <img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_11.png" width="380">
 
+Still can use hue, hue parameter to encode the color. The color varies according to the type of variable passed to this parameter. 
+```Python
+sns.relplot(data=car, x='weight', y='horsepower',
+            size='displacement',
+            hue='acceleration'
+           )
+plt.show()
+```
+<img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_12.png" width="380">
+
+If we pass the origin column, which is a category variable, it will have three color markers instead of a continuous (light to dark) hue:
+```Python
+sns.relplot(data=car, x='weight', y='horsepower',
+            size='displacement',
+            hue='origin'
+           )
+plt.show()
+```
+<img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_13.png" width="380">
+> Note: you could custom colors by adding like palette='crest', see: http://seaborn.pydata.org/tutorial/color_palettes.html
+
+In larger data sets, it may be difficult to distinguish colors in point groups. For clarity, we add the style of the pots to the drawing:
+```Python
+sns.relplot(data=car, x='weight', y='horsepower',
+            size='displacement',
+            hue='origin',
+            style='origin',
+            alpha=0.8  # Sets the transparency of the pot
+           )
+plt.show()
+```
+<img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_14.png" width="380">
+
+Same as the displot, use col can create sub-chart which will make the information be easier to read:
+```Python
+sns.relplot(data=car,
+            x='weight', y='horsepower',
+            size='displacement',
+            hue='acceleration',
+            palette='crest',
+            col='origin',
+            col_wrap=2,  # col_wrap tells how many columns there are in a row
+            alpha=0.8
+           )
+plt.show()
+```
+<img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_15.png">
