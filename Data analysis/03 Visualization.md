@@ -77,22 +77,36 @@ plt.show()
 <img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_5.png" width="380">
 
 ##### Hue, row and col
-```
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-sns.set(style="darkgrid")
-
-tips = pd.read_csv("https://milliams.com/courses/data_analysis_python/tips.csv")
-sns.displot(data=tips, x="total_bill", col='time')
+According to the col, it can drawing different graphs:
+```Python
+sns.set(style="darkgrid", color_codes=True)
+m=sns.load_dataset('mpg')
+sns.displot(data=m, x='weight',
+            bins=30,
+            color='green',
+            edgecolor='m',
+            col='origin'
+            )
 plt.show()
 ```
-<img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_6.png" width="500">
+<img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_6.png" width="850">
+
+Use hue, can drawing different boxes in one graphs:
+```Python
+sns.set(style="darkgrid", color_codes=True)
+m=sns.load_dataset('mpg')
+sns.displot(data=m, x='weight',
+            bins=30,
+            edgecolor='m',
+            hue='origin'
+            )
+plt.show()
+```
+<img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_6.1.png" width="380">
 
 
 ##### Kde 
-If only need kde, use sns.kdeplot:
+Use sns.kdeplot:
 ```Python
 sns.set(style="white")
 m=sns.load_dataset('mpg')
@@ -113,8 +127,18 @@ plt.show()
 ```
 <img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_8.png" width="380">
 
-
-
+Another 3 curves example:
+```Python
+sns.set(style="darkgrid", color_codes=True)
+m=sns.load_dataset('mpg')
+sns.displot(data=m, x='weight',
+            kind="kde",
+            hue='origin',
+            common_norm=False
+            )
+plt.show()
+```
+<img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_9.png" width="380">
 
 -----
 
