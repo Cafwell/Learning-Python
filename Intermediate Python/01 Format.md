@@ -23,6 +23,14 @@ print(f'{var+1}')
 11
 ```
 
+Floating-point values are suffixed with f:
+```Python
+a = 3
+print(f"I have £ {a:.2f}")
+---
+I have £ 3.00
+```
+
 ### % 
 The earliest format was % (the percent sign) , which it used:
 ```Python
