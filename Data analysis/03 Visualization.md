@@ -104,9 +104,25 @@ plt.show()
 ```
 <img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_6.1.png" width="380">
 
+Since the two histograms were not comparable because of the different number of observations between the two groups, we could use the stat option to plot the density instead of the count to address this issue.
+```Python
+sns.set(style="darkgrid", color_codes=True)
+m=sns.load_dataset('mpg')
+sns.displot(data=m, x='weight',
+            edgecolor='m',
+            hue='origin',
+           
+            stat="density",  # draw density
+            common_norm=False  # normalize every histogram 
+            )
+plt.show()
+```
+<img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_6.2.png" width="380">
+
 
 ##### Kde 
-Use sns.kdeplot:
+A more comparable way is using kernel density estimation (kde):   
+The function is 'sns.kdeplot()'
 ```Python
 sns.set(style="white")
 m=sns.load_dataset('mpg')
@@ -127,7 +143,7 @@ plt.show()
 ```
 <img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_8.png" width="380">
 
-Another 3 curves example:
+Or just use 'kind="kde"' in displot:
 ```Python
 sns.set(style="darkgrid", color_codes=True)
 m=sns.load_dataset('mpg')
@@ -144,5 +160,28 @@ plt.show()
 
 #### Relplot
 This is a graph-level function that uses scatter plots and line plots to represent statistical relationships.
+```Python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set(style="darkgrid")
 
+car = sns.load_dataset('mpg')
+sns.relplot(data=car, x='weight', y='horsepower', 
+            kind='scatter'  # By default, it is set to scatter
+           )
+plt.show()
+```
+<img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_10.png" width="380">
+
+If we want to add a new variable, for example, we wanna see whether the heavy vehicle has a larger displacement:
+```Python
+sns.relplot(data=car,
+            x='weight', y='horsepower',
+            size='displacement'
+           )
+plt.show()
+```
+<img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_11.png" width="380">
 
