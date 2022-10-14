@@ -31,3 +31,8 @@ Based on https://milliams.com/courses/beginning_python/ and Network resources ( 
 
 * [3. Data analysis](https://github.com/Cafwell/Learning-Python/tree/main/Data%20analysis)
   * [Pandas](https://github.com/Cafwell/Learning-Python/blob/main/Data%20analysis/01%20Pandas.md)
+  * [More about files](https://github.com/Cafwell/Learning-Python/blob/main/Data%20analysis/02%20More%20about%20files.md)
+  * [Filtering](https://github.com/Cafwell/Learning-Python/blob/main/Data%20analysis/02.1%20Filtering.md)
+  * [Visualization](https://github.com/Cafwell/Learning-Python/edit/main/Data%20analysis/03%20Visualization.md)
+  
+  
