@@ -88,6 +88,12 @@ print(a)
 5  2012  -1.000  2.244  2.627
 6  2015   8.615    NaN    NaN
 ```
+We use sep=";" because the origin csv use ; to seperate nums.   
+If seperated by blank characters, we use:
++ sep=" "
++ sep="\s+"
++ delim_whitespace=True
+
 
 There still some missing nums, if we want to add some custom values equivalent to missing values, use na_values:
 ```Python
