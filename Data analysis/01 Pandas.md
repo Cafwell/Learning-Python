@@ -99,22 +99,3 @@ three  c   7  3.6
 four   d   8  4.6
 five   e   9  5.8
 ```
-
-
-
-In Pycharm, should add the “ plt.show() ” statement at the end of the drawing code.
-
-```Python
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-
-t = np.arange(0.0, 2.0, 0.01)
-s = np.sin(2*np.pi*t)
-fig, ax = plt.subplots()
-ax.plot(t, s)
-plt.show ()
-
-```
-<img src="https://github.com/Cafwell/Learning-Python/blob/main/imgs/Data%20Analysis/Figure_1.png" width="400">
-
