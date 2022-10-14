@@ -129,7 +129,7 @@ year
 2015   8.615    NaN    NaN
 ```
 
-### Exercise
+#### Exercise
 Read the file at https://milliams.com/courses/data_analysis_python/meantemp_monthly_totals.txt into Pandas (this data is originally from the Met Office and there's a description of the format there too under "Format for monthly CET series data").
 This contains some historical weather data for a location in the UK. Import that file as a Pandas DataFrame using read_csv(), making sure that you set the index column, skip the appropriate rows, separate the columns correctly and cover all the possible NaN values.
 
@@ -156,4 +156,166 @@ pd.set_option('display.max_colwidth', 1000)
 
 {pd.set_option('display.max_columns', 1000)
 pd.set_option('display.width', 1000)}
+```
+
+### Query the data
+```Python
+import pandas as pd
+import numpy as np
+
+tips = pd.read_csv("https://milliams.com/courses/data_analysis_python/tips.csv")
+print(tips)
+---
+     total_bill   tip   day    time  size
+0         16.99  0.71   Sun  Dinner     2
+1         10.34  1.16   Sun  Dinner     3
+2         21.01  2.45   Sun  Dinner     3
+3         23.68  2.32   Sun  Dinner     2
+4         24.59  2.53   Sun  Dinner     4
+..          ...   ...   ...     ...   ...
+239       29.03  4.14   Sat  Dinner     3
+240       27.18  1.40   Sat  Dinner     2
+241       22.67  1.40   Sat  Dinner     2
+242       17.82  1.22   Sat  Dinner     2
+243       18.78  2.10  Thur  Dinner     2
+
+[244 rows x 5 columns]
+
+
+print(tips["total_bill"])
+---
+0      16.99
+1      10.34
+2      21.01
+3      23.68
+4      24.59
+       ...  
+239    29.03
+240    27.18
+241    22.67
+242    17.82
+243    18.78
+Name: total_bill, Length: 244, dtype: float64
+```
+Use [ ] will returns an Series!
+
+```Python
+tips[["total_bill", "tip"]]
+---
+     total_bill   tip
+0         16.99  0.71
+1         10.34  1.16
+2         21.01  2.45
+3         23.68  2.32
+4         24.59  2.53
+..          ...   ...
+239       29.03  4.14
+240       27.18  1.40
+241       22.67  1.40
+242       17.82  1.22
+243       18.78  2.10
+
+[244 rows x 2 columns]
+```
+This gives you back another DataFram.
+
+#### Getting rows
+use the .loc function:
+```Python
+print(tips.loc[2]) # get the 3rd row
+---
+total_bill     21.01
+tip             2.45
+day              Sun
+time          Dinner
+size               3
+Name: 2, dtype: object
+```
+To grab a single value, add a name:
+```Python
+print(tips.loc[2,"total_bill"]) # get the 3rd row and only the value of "total_bill"
+---
+total_bill     21.01
+```
+
+### Statistics
+```Python
+tips["total_bill"].sum()  # sum up all num in "total_bill"
+---
+4827.77
+
+tips["total_bill"].mean()  # find the mean of "total_bill"
+---
+19.78594262295082
+
+tips["total_bill"].max()  # find out the biggest num
+---
+50.81
+
+tips["total_bill"].min()  # find out the smallest num
+---
+3.07
+
+tips["total_bill"].idxmax()  # find out the max num (50.81) came from which row 
+---
+170
+```
+
+### Acting on columns
+You can apply the operation(+ - * /) to each row:
+```Python
+tips["tip"] * 100 
+---
+0       71.0
+1      116.0
+2      245.0
+3      232.0
+4      253.0
+       ...  
+239    414.0
+240    140.0
+241    140.0
+242    122.0
+243    210.0
+Name: tip, Length: 244, dtype: float64
+```
+
+In addition, combine columns is also fine:
+```Python
+tips["tip"] / tips["total_bill"]
+---
+0      0.041789
+1      0.112186
+2      0.116611
+3      0.097973
+4      0.102887
+         ...   
+239    0.142611
+240    0.051508
+241    0.061756
+242    0.068462
+243    0.111821
+Length: 244, dtype: float64
+```
+
+Adding new columns:
+```Python
+tip_percent = (tips["tip"] / tips["total_bill"]) * 100
+tips["percent"] = tip_percent  # add a new column called "percent"
+print(tips)
+---
+     total_bill   tip   day    time  size    percent
+0         16.99  0.71   Sun  Dinner     2   4.178929
+1         10.34  1.16   Sun  Dinner     3  11.218569
+2         21.01  2.45   Sun  Dinner     3  11.661114
+3         23.68  2.32   Sun  Dinner     2   9.797297
+4         24.59  2.53   Sun  Dinner     4  10.288735
+..          ...   ...   ...     ...   ...        ...
+239       29.03  4.14   Sat  Dinner     3  14.261109
+240       27.18  1.40   Sat  Dinner     2   5.150846
+241       22.67  1.40   Sat  Dinner     2   6.175562
+242       17.82  1.22   Sat  Dinner     2   6.846240
+243       18.78  2.10  Thur  Dinner     2  11.182109
+
+[244 rows x 6 columns]
 ```
