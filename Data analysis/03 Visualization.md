@@ -236,4 +236,4 @@ plt.show()
 -----
 
 #### Catplot
-Categorical data
+When having categorical variables in data, you usually want to compare between the categories.
