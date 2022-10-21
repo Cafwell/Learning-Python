@@ -1,4 +1,4 @@
-## List
+
 List is the most basic data structure in Python.
 
 To creat a list, use:
